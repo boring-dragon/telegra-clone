@@ -16,5 +16,8 @@ function resize(e) {
 </script>
 
 <template>
-  <textarea class="w-full border-none focus:outline-0 resize-none leading-[42px]" rows="2" :placeholder="props.placeholder" :value="props.modelValue" @input="$emit('update:modelValue', $event.target.value); resize($event)" />
+  <div class="flex">
+    <label v-if="props.modelValue.length > 0" class="text-sm mr-2">{{ props.placeholder }}</label>
+    <textarea class="w-full  px-2 focus:outline-0 resize-none leading-[42px]" :class="{ 'border-l border-gray-300': props.modelValue.length > 0 }" rows="2" :placeholder="props.placeholder" :value="props.modelValue" @input="$emit('update:modelValue', $event.target.value); resize($event)" />
+  </div>
 </template>
