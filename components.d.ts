@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Textarea: typeof import('./src/components/Textarea.vue')['default']
+    Tiptap: typeof import('./src/components/Tiptap.vue')['default']
   }
 }
 
