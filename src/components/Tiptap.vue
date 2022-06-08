@@ -25,6 +25,14 @@ const editor = useEditor({
         'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl m-5 focus:outline-none',
     },
   },
+  onCreate({ editor }) {
+    const author = document.querySelector('#author')
+    author.addEventListener('keypress', (event) => {
+      if (event.keyCode === 13)
+        // Focus on the editor on author click
+        editor.view.dom.focus()
+    })
+  },
   onUpdate: ({ editor }) => {
     emit('update:modelValue', editor.getJSON())
   },

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { useFocus } from '@vueuse/core'
+
+const input = ref()
+const { focused } = useFocus(input)
+
 const state = reactive({
   title: 'MNDF seizes Sri Lankan fishing boat illegally in Maldivian waters',
   author: 'jinas',
@@ -57,10 +62,12 @@ const state = reactive({
   <div class="container mx-auto max-w-3xl">
     <div class="flex items-start justify-between">
       <div>
-        <Textarea v-model="state.title" class="text-4xl" placeholder="Title" />
-        <input v-model="state.author" type="text" class="text-sm w-full border-none px-2 focus:outline-0 resize-none leading-[42px]" placeholder="Your name">
+        <Textarea v-model="state.title" class="text-4xl" placeholder="Title" @keyup.enter="focused = true" />
+        <input id="author" ref="input" v-model="state.author" type="text" class="text-sm w-full border-none px-2 focus:outline-0 resize-none leading-[42px]" placeholder="Your name">
         <Tiptap v-model="state.content" />
-        {{ state.content }}
+        <div class="p-3 bg-gray-50">
+          {{ state.content }}
+        </div>
       </div>
       <div>
         <button class="inline-flex items-center px-4 py-2 border-2 border-gray-900 text-sm font-semibold rounded-full text-gray-900 bg-white focus:outline-none focus:ring-0 uppercase" type="button">
