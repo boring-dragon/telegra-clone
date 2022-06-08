@@ -8,7 +8,7 @@ const props = defineProps({
     default: 'eyo write something..',
   },
 })
-
+defineEmits(['update:modelValue'])
 function resize(e) {
   e.target.style.height = 'auto'
   e.target.style.height = `${e.target.scrollHeight}px`

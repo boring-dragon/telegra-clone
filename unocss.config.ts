@@ -2,6 +2,7 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
+  presetTypography,
   presetUno,
   presetWebFonts,
   // transformerDirectives,
@@ -16,6 +17,7 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetAttributify(),
+    presetTypography(),
     presetIcons({
       scale: 1.2,
       warn: true,
