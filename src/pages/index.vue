@@ -58,7 +58,7 @@ const state = reactive({
     <div class="flex items-start justify-between">
       <div>
         <Textarea v-model="state.title" class="text-4xl" placeholder="Title" />
-        <textarea v-model="state.author" class="text-sm w-full border-none px-2 focus:outline-0 resize-none leading-[42px]" placeholder="Your name" />
+        <input v-model="state.author" type="text" class="text-sm w-full border-none px-2 focus:outline-0 resize-none leading-[42px]" placeholder="Your name">
         <Tiptap v-model="state.content" />
         {{ state.content }}
       </div>
